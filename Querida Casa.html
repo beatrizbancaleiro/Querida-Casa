@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Querida Casinha</title>
+    <style>
+        body{
+            background-color: silver;
+        }
+        canvas{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border: 3px solid #aaaaaa;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="800" height="520"></canvas>
+        <script>
+            var canvas = document.getElementById("myCanvas");	
+            var context = canvas.getContext("2d");
+
+            window.onload = function(){
+                canvas.addEventListener('click', noite, true);
+                    //Ceu
+                        context.beginPath();
+		                context.moveTo(0,0);
+		                context.lineTo(0,400);
+                        context.lineTo(800,400);
+                        context.lineTo(800,0);
+                        context.lineTo(0,0);
+		                context.stroke();
+                        context.fillStyle = "#87CEEB";
+                        context.fill();
+
+                    //sol 
+                        context.strokeStyle="yellow";
+                        context.fillStyle = "yellow";
+                        context.beginPath();
+                        context.arc(90,80,50,0,2*Math.PI);
+                        context.closePath();
+                        context.fill();
+                        context.stroke();
+
+                    //sol raios
+                        context.beginPath();
+                        context.moveTo(45, 35);
+                        context.lineTo(35, 25);
+
+                        context.moveTo(135, 125);
+                        context.lineTo(145, 135);
+
+                        context.moveTo(135, 35);
+                        context.lineTo(145, 25);
+
+                        context.moveTo(45, 125);
+                        context.lineTo(35, 135);
+
+                        context.moveTo(90, 140);
+                        context.lineTo(90, 155);
+
+                        context.moveTo(90, 20);
+                        context.lineTo(90, 5);
+
+                        context.moveTo(155, 80);
+                        context.lineTo(170, 80);
+
+                        context.moveTo(30, 80);
+                        context.lineTo(15, 80);
+
+                        context.closePath();
+                        context.stroke();    
+
+                    //Chao
+                        context.beginPath();
+                        context.strokeStyle="#000000";
+                        context.lineWidth = 3;
+		                context.moveTo(0,400);
+		                context.lineTo(0,520);
+                        context.lineTo(800,520);
+                        context.lineTo(800,400);
+                        context.lineTo(0,400);
+		                context.stroke();
+                        context.fillStyle = "#348C31";
+                        context.fill();
+
+                    //retangulo da casa
+                        context.beginPath();
+                        context.lineWidth = 3;
+		                context.moveTo(363,480);
+		                context.lineTo(703,480);
+                        context.lineTo(703,280);
+                        context.lineTo(363,280);
+                        context.lineTo(363,480);
+		                context.stroke();
+                        context.fillStyle = "#f9e8d7";
+                        context.fill();
+
+                    //telhado maior
+                        context.beginPath();
+                        context.lineWidth = 1;
+		                context.moveTo(363,280);
+		                context.lineTo(738,280);
+                        context.lineTo(648,132);
+                        context.lineTo(265,132);                
+                        context.fillStyle = "#f77272";
+                        context.fill();
+                        context.stroke();
+                    //pentaguno da casa
+                        context.beginPath();
+                        context.lineWidth = 3;
+                        context.fillRect(265,132, 362, 148);
+		                context.moveTo(363,480);
+		                context.lineTo(95,480);
+                        context.lineTo(95,250);
+                        context.lineTo(228,118);
+                        context.lineTo(363,250);
+                        context.lineTo(363,480);
+		                context.stroke();
+                        context.fillStyle = "#f9e8d7";
+                        context.fill();
+
+                    //telhado pequeno
+                        context.beginPath();
+                        context.lineWidth = 2;
+		                context.moveTo(228,93);
+		                context.lineTo(398,263);
+                        context.lineTo(386,275);
+                        context.lineTo(228,118);
+                        context.lineTo(71,275);
+                        context.lineTo(59,263);
+                        context.lineTo(228,93);		        
+                        context.fillStyle = "#f77272";
+                        context.fill();
+                        context.stroke();
+
+                    //chamine
+                        context.beginPath();
+                        context.lineWidth = 2;
+		                context.moveTo(593,132);
+		                context.lineTo(593,112);
+                        context.lineTo(555,112);
+                        context.lineTo(555,132);
+                        context.lineTo(593,132);
+                
+                        context.fillStyle = "#bca691";
+                        context.fill();
+                        context.moveTo(598,112);
+                        context.lineTo(598,97);
+                        context.lineTo(550,97);
+                        context.lineTo(550,112);
+                        context.lineTo(598,112);
+                        context.fillStyle = "#bca691";
+                        context.fill();
+                        context.stroke();
+
+                    //PORTA
+                        context.beginPath();
+                        context.lineWidth = 2;
+		                context.moveTo(412.5,466);
+		                context.lineTo(492.5,466);
+                        context.lineTo(492.5,326);
+                        context.lineTo(412.5,326);
+                        context.lineTo(412.5,466);
+		                context.stroke();
+                        context.fillStyle = "#c19167";
+                        context.fill();
+
+                        context.beginPath();
+                        context.arc(428.5,396,5,0,2*Math.PI);
+                        context.fillStyle = "#c19167";
+                        context.closePath();
+                        context.fill();
+                        context.stroke();
+
+                    //DEGRAU PORTA
+                        context.beginPath();                
+		                context.moveTo(400,480);
+		                context.lineTo(505,480);
+                        context.lineTo(505,465);
+                        context.lineTo(400,465);
+                        context.lineTo(400,480);
+		                context.stroke();  
+                        context.fillStyle = "#9f5900";
+                        context.fill();
+
+                    //Janela
+                        context.beginPath();
+                        context.lineWidth = 1;
+		                context.moveTo(535,406);
+		                context.lineTo(668,406);
+                        context.lineTo(668,310);
+                        context.lineTo(535,310);
+                        context.lineTo(535,406);
+		                context.stroke();
+                        context.fillStyle = "#ffffff";
+                        context.fill();
+
+                    //Janela INTERIOR
+                        context.beginPath();
+		                context.moveTo(544,395);
+		                context.lineTo(659,395);
+                        context.lineTo(659,321);
+                        context.lineTo(544,321);
+                        context.lineTo(544,395);
+                        context.fillStyle = "#d0faf9";
+                        context.fill();
+                        context.moveTo(601.5,321)
+                        context.lineTo(601.5,395)
+                        context.stroke();
+
+                    //Janela 2
+                        context.beginPath();
+		                context.moveTo(139,415);
+		                context.lineTo(319,415);
+                        context.lineTo(319,309);
+                        context.lineTo(139,309);
+                        context.lineTo(139,415);
+		                context.stroke();
+                        context.fillStyle = "#ffffff";
+                        context.fill();
+
+                    //Janela 2 INTERIOR
+                        context.beginPath();
+		                context.moveTo(149.5,405);
+		                context.lineTo(308.5,405);
+                        context.lineTo(308.5,319);
+                        context.lineTo(149.5,319);
+                        context.lineTo(149.5,405);		        
+                        context.fillStyle = "#d0faf9";
+                        context.fill();
+
+                        context.moveTo(202.5,319);
+                        context.lineTo(202.5,405);
+
+                        context.moveTo(255.5,319);
+                        context.lineTo(255.5,405);
+                        context.stroke();
+
+                    //Janela 3
+                        context.beginPath();
+		                context.moveTo(191,182);
+		                context.lineTo(265,182);
+                        context.lineTo(265,242);
+                        context.lineTo(191,242);
+                        context.lineTo(191,182);
+
+                        context.fillStyle = "#d0faf9";
+                        context.fill();
+
+                        context.moveTo(228,182);
+                        context.lineTo(228,242);
+
+                        context.moveTo(191,212);
+                        context.lineTo(265,212);
+
+                        context.closePath();
+		                context.stroke();
+            };
+
+            function noite(event){
+                context.clearRect(0, 0, canvas.width, canvas.height);
+
+                var gradient1 = context.createRadialGradient(601.5,321, 7,601.5 ,321, 70);
+                gradient1.addColorStop(0, '#f4e577');
+                gradient1.addColorStop(0.52, '#e9f1c0');
+                gradient1.addColorStop(0.8, '#bdeccc');
+		        gradient1.addColorStop(1, '#aaead1');
+
+                var gradient2 = context.createRadialGradient(229,319, 2, 229,319, 60);
+                gradient2.addColorStop(0, '#f4e577');
+                gradient2.addColorStop(0.52, '#e9f1c0');
+                gradient2.addColorStop(0.8, '#bdeccc');
+		        gradient2.addColorStop(1, '#aaead1');
+
+                var gradient3 = context.createRadialGradient(228,182, 0.5, 228,182,30);
+                gradient3.addColorStop(0, '#f4e577');
+                gradient3.addColorStop(0.52, '#e9f1c0');
+                gradient3.addColorStop(0.8, '#bdeccc');
+		        gradient3.addColorStop(1, '#aaead1');
+                
+                //Ceu
+                    context.beginPath();
+		            context.moveTo(0,0);
+		            context.lineTo(0,400);
+                    context.lineTo(800,400);
+                    context.lineTo(800,0);
+                    context.lineTo(0,0);
+		            context.stroke();
+                    context.fillStyle = "#344b6d";
+                    context.fill();
+
+                //lua 
+                    context.fillStyle = "#dcdcdc";
+                    context.strokeStyle="#dcdcdc";
+                    context.beginPath();
+                    context.arc(720, 75, 50, 0, 2 * Math.PI);
+                    context.stroke();
+                    context.fill();
+
+                    context.strokeStyle="#344b6d";
+                    context.fillStyle = "#344b6d";
+                    context.beginPath();
+                    context.arc(750, 75, 40, 0, 2 * Math.PI);
+                    context.stroke();
+                    context.fill();
+
+                //Chao
+                    context.beginPath();
+                    context.strokeStyle="#000000";
+                    context.lineWidth = 3;
+		            context.moveTo(0,400);
+		            context.lineTo(0,520);
+                    context.lineTo(800,520);
+                    context.lineTo(800,400);
+                    context.lineTo(0,400);
+		            context.stroke();
+                    context.fillStyle = "#001331";
+                    context.fill();
+
+                //retangulo da casa
+                    context.beginPath();
+                    context.lineWidth = 3;
+		            context.moveTo(363,480);
+		            context.lineTo(703,480);
+                    context.lineTo(703,280);
+                    context.lineTo(363,280);
+                    context.lineTo(363,480);
+		            context.stroke();
+                    context.fillStyle = "#666970";
+                    context.fill();
+
+                //telhado maior
+                    context.beginPath();
+                    context.lineWidth = 1;
+
+		            context.moveTo(363,280);
+		            context.lineTo(738,280);
+                    context.lineTo(648,132);
+                    context.lineTo(265,132);                
+		        
+                    context.fillStyle = "#3e3c6b";
+                    context.fill();
+                    context.stroke();
+
+                //pentaguno da casa
+                    context.beginPath();
+                    context.lineWidth = 3;
+                    context.fillRect(265,132, 362, 148);
+		            context.moveTo(363,480);
+		            context.lineTo(95,480);
+                    context.lineTo(95,250);
+                    context.lineTo(228,118);
+                    context.lineTo(363,250);
+                    context.lineTo(363,480);
+		            context.stroke();
+                    context.fillStyle = "#666970";
+                    context.fill();
+
+                //telhado pequeno
+                    context.beginPath();
+                    context.lineWidth = 2;
+		            context.moveTo(228,93);
+		            context.lineTo(398,263);
+                    context.lineTo(386,275);
+                    context.lineTo(228,118);
+                    context.lineTo(71,275);
+                    context.lineTo(59,263);
+                    context.lineTo(228,93);
+		        
+                    context.fillStyle = "#3e3c6b";
+                    context.fill();
+                    context.stroke();
+
+                //chamine
+                    context.beginPath();
+                    context.lineWidth = 2;
+		            context.moveTo(593,132);
+		            context.lineTo(593,112);
+                    context.lineTo(555,112);
+                    context.lineTo(555,132);
+                    context.lineTo(593,132);
+                
+                    context.fillStyle = "#3f434f";
+                    context.fill();
+                    context.moveTo(598,112);
+                    context.lineTo(598,97);
+                    context.lineTo(550,97);
+                    context.lineTo(550,112);
+                    context.lineTo(598,112);
+                    context.fillStyle = "#3f434f";
+                    context.fill();
+                    context.stroke();
+                    
+                //PORTA
+                    context.beginPath();
+                    context.lineWidth = 2;
+		            context.moveTo(412.5,466);
+		            context.lineTo(492.5,466);
+                    context.lineTo(492.5,326);
+                    context.lineTo(412.5,326);
+                    context.lineTo(412.5,466);
+		            context.stroke();
+                    context.fillStyle = "#2f3350";
+                    context.fill();
+
+                    context.beginPath();
+                    context.arc(428.5,396,5,0,2*Math.PI);
+                    context.fillStyle = "#2f3350";
+                    context.closePath();
+                    context.fill();
+                    context.stroke();
+
+                //DEGRAU PORTA
+                    context.beginPath();
+		            context.moveTo(400,480);
+		            context.lineTo(505,480);
+                    context.lineTo(505,465);
+                    context.lineTo(400,465);
+                    context.lineTo(400,480);
+		            context.stroke();  
+                    context.fillStyle = "#000139";
+                    context.fill();
+                //Janela
+                    context.beginPath();
+                    context.lineWidth = 1;
+		            context.moveTo(535,406);
+		            context.lineTo(668,406);
+                    context.lineTo(668,310);
+                    context.lineTo(535,310);
+                    context.lineTo(535,406);
+		            context.stroke();
+                    context.fillStyle = "#787775";
+                    context.fill();
+
+                //Janela INTERIOR
+                    context.beginPath();
+		            context.moveTo(544,395);
+		            context.lineTo(659,395);
+                    context.lineTo(659,321);
+                    context.lineTo(544,321);
+                    context.lineTo(544,395);
+                    context.fillStyle = gradient1;
+                    context.fill();
+                    context.moveTo(601.5,321)
+                    context.lineTo(601.5,395)
+                    context.stroke();
+
+                //Janela 2
+                    context.beginPath();
+		            context.moveTo(139,415);
+		            context.lineTo(319,415);
+                    context.lineTo(319,309);
+                    context.lineTo(139,309);
+                    context.lineTo(139,415);
+		            context.stroke();
+                    context.fillStyle = "#787775";
+                    context.fill();
+
+                //Janela 2 INTERIOR
+                    context.beginPath();
+		            context.moveTo(149.5,405);
+		            context.lineTo(308.5,405);
+                    context.lineTo(308.5,319);
+                    context.lineTo(149.5,319);
+                    context.lineTo(149.5,405);
+
+                    context.fillStyle = gradient2;
+                    context.fill();
+                    context.moveTo(202.5,319);
+                    context.lineTo(202.5,405);
+                    context.moveTo(255.5,319);
+                    context.lineTo(255.5,405);
+                    context.stroke();
+
+                //Janela 3
+                    context.beginPath();
+		            context.moveTo(191,182);
+		            context.lineTo(265,182);
+                    context.lineTo(265,242);
+                    context.lineTo(191,242);
+                    context.lineTo(191,182);
+
+                    context.fillStyle = gradient3;
+                    context.fill();
+
+                    context.moveTo(228,182);
+                    context.lineTo(228,242);
+
+                    context.moveTo(191,212);
+                    context.lineTo(265,212);
+                    context.closePath();
+		            context.stroke();
+            		                
+            };
+    
+        </script>
+</body>
+</html>
